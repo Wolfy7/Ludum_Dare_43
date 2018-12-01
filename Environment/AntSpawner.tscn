@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/AntSpawner.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Environment/anthill.png" type="Texture" id=2]
 
 [node name="AntSpawner" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,5 +11,11 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 22.1297 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

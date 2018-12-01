@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GFX/Tileset/Ground.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="Sprite" parent="."]
+position = Vector2( 64, 64 )
+texture = ExtResource( 1 )
+
