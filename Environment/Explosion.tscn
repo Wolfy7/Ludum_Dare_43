@@ -21,8 +21,6 @@ animations = [ {
 [node name="Explosion" type="AnimatedSprite"]
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
-playing = true
 script = ExtResource( 8 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "frames" ]
 

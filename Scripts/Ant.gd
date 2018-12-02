@@ -37,5 +37,6 @@ func _on_Timer_timeout():
 	var explosion = load("res://Environment/Explosion.tscn").instance()
 	get_parent().add_child(explosion)
 	explosion.position = self.position
+	explosion.playing = true
 	queue_free()
 	#pass
