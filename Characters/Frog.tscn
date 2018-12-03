@@ -1,27 +1,27 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://GFX/Environment/frog_eat1.png" type="Texture" id=2]
-[ext_resource path="res://GFX/Environment/frog_eat2.png" type="Texture" id=3]
-[ext_resource path="res://GFX/Environment/frog_eat3.png" type="Texture" id=4]
-[ext_resource path="res://GFX/Environment/frog_eat4.png" type="Texture" id=5]
-[ext_resource path="res://GFX/Environment/frog_eat5.png" type="Texture" id=6]
-[ext_resource path="res://GFX/Environment/frog_eat6.png" type="Texture" id=7]
-[ext_resource path="res://GFX/Environment/frog_eat7.png" type="Texture" id=8]
-[ext_resource path="res://GFX/Environment/frog_eat8.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Environment/frog_eat8.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Environment/frog_eat1.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Environment/frog_eat2.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Environment/frog_eat3.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Environment/frog_eat4.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Environment/frog_eat5.png" type="Texture" id=7]
+[ext_resource path="res://GFX/Environment/frog_eat6.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Environment/frog_eat7.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Eat",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Eat",
+"speed": 14.0
 } ]
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -52,10 +52,17 @@ rotation = -1.5708
 scale = Vector2( 3, 1 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 30 )
+cast_to = Vector2( 0, 25 )
 collision_mask = 2
 collide_with_areas = false
 collide_with_bodies = true
 _sections_unfolded = [ "Transform" ]
 
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

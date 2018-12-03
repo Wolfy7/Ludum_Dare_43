@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Resources/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://GFX/Environment/gravestone1.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Environment/Bomb1.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Environment/Biohazard3.png" type="Texture" id=4]
 
 [node name="AntPopup" type="Popup"]
 anchor_left = 0.5
@@ -20,7 +23,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 1 )
 popup_exclusive = false
-_sections_unfolded = [ "Rect", "Theme" ]
+_sections_unfolded = [ "Hint", "Rect", "Theme", "theme" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.0
@@ -40,9 +43,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 21.0
 margin_top = 37.0
-margin_right = 159.0
+margin_right = 208.0
 margin_bottom = 162.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -57,10 +59,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 138.0
+margin_right = 208.0
 margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+hint_tooltip = "after 1s sacrifice himself to block the way with her body"
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -71,8 +74,10 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 text = "Kill"
+icon = ExtResource( 2 )
 flat = false
 align = 1
+_sections_unfolded = [ "Hint", "Margin" ]
 
 [node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
 anchor_left = 0.0
@@ -80,10 +85,11 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 43.0
-margin_right = 138.0
+margin_right = 208.0
 margin_bottom = 82.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+hint_tooltip = "after 5sec blow up himself to destroy blocking obstacles"
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -94,8 +100,10 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 text = "Explode"
+icon = ExtResource( 3 )
 flat = false
 align = 1
+_sections_unfolded = [ "Hint", "Margin" ]
 
 [node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
 anchor_left = 0.0
@@ -103,10 +111,11 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 86.0
-margin_right = 138.0
+margin_right = 208.0
 margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+hint_tooltip = "after 4sec blow up himself and secrete a toxic secretion to defeat enemies"
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -116,7 +125,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Acid"
+text = "Biohazard"
+icon = ExtResource( 4 )
 flat = false
 align = 1
+_sections_unfolded = [ "Hint", "Theme", "custom_fonts" ]
 

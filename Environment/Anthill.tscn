@@ -1,11 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://GFX/Environment/anthill.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Anthill.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Environment/anthill.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://GFX/Environment/ant.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 12.9373, 11.7096 )
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 16
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Anthill" type="Area2D"]
 input_pickable = true
@@ -16,12 +29,46 @@ angular_damp = 1.0
 collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.250343, 20.2779 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -9.0
+margin_top = -39.0
+margin_right = 9.0
+margin_bottom = -22.0
+rect_min_size = Vector2( 18, 17 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Sprite" type="Sprite" parent="Label"]
+position = Vector2( 26.2542, 6.94163 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 28.25, 1.5, 16.5, 22.25 )
+
+[connection signal="body_entered" from="." to="." method="_on_Anthill_body_entered"]

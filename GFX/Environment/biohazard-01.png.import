@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frog.png-12adcb44a2e367c5172ee39266bd3ad4.stex"
+path="res://.import/biohazard-01.png-7a86917e33674256d51a736a6a20af08.stex"
 
 [deps]
 
-source_file="res://GFX/Environment/frog.png"
-dest_files=[ "res://.import/frog.png-12adcb44a2e367c5172ee39266bd3ad4.stex" ]
+source_file="res://GFX/Environment/biohazard-01.png"
+dest_files=[ "res://.import/biohazard-01.png-7a86917e33674256d51a736a6a20af08.stex" ]
 
 [params]
 

@@ -11,12 +11,12 @@ extents = Vector2( 16, 16 )
 [node name="Obstacel" type="StaticBody2D"]
 input_pickable = false
 collision_layer = 8
-collision_mask = 7
+collision_mask = 23
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 physics_material_override = null
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Pickable" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

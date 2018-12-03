@@ -39,10 +39,14 @@ tile_data = PoolIntArray( 131072, 0, 0, 131073, 0, 1, 131074, 0, 1, 131075, 0, 1
 _sections_unfolded = [ "Collision", "tile_set" ]
 
 [node name="Area2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 224.296, 197.225 )
+position = Vector2( 341.758, 205.33 )
+
+[node name="Area2D2" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
+position = Vector2( 494.042, 301.278 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 198.729, 307.015 )
+position = Vector2( 176.564, 307.034 )
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
@@ -52,7 +56,6 @@ autostart = false
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
-[connection signal="body_entered" from="Anthill" to="." method="_on_Anthill_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Area2D"]

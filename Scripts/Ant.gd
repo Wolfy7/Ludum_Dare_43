@@ -8,7 +8,7 @@ const UP = Vector2(0, -1)
 var velocity = Vector2()
 var move_direction = Vector2(1,0)
 var is_selectable = true
-
+var command = ""
 
 func _ready():
 	#$Timer.start()
@@ -36,20 +36,15 @@ func toogle_move_direction():
 	$Sprite.flip_h = !$Sprite.flip_h 
 
 func _on_Timer_timeout():
-	# EXPLOSION
-#	var cshape = CircleShape2D.new()
-#	cshape.set_radius(20.0)
-#	collision_layer = 16
-#	collision_mask = 12
-#	$CollisionShape2D.shape = cshape
-#	set_physics_process(false)
-	
+	if command == "die":
+		$AnimationPlayer.play("die")
+		return
+		
 	var explosion = load("res://Environment/Explosion.tscn").instance()
-	get_parent().add_child(explosion)
 	explosion.position = self.position
-	explosion.playing = true
-	queue_free()
-	#pass
+	explosion.type = command
+	get_parent().add_child(explosion)
+	destroy_ant()
 
 func _on_Ant_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -63,15 +58,42 @@ func _on_AntPopup_popup_hide():
 		$AnimatedSprite.playing = false
 
 func _on_Button_pressed():
-	pass # Replace with function body.
-
+	command = "die"
+	$AnimationPlayer.play("prepare_die")
+	$Timer.wait_time = 1
+	$Timer.start()
+	$AntPopup.hide()
+	is_selectable = false
 
 func _on_Button2_pressed():
+	command = "explosion"
 	$AnimationPlayer.play("prepare_exploded")
+	$Timer.wait_time = 5
+	$Timer.start()
+	$AntPopup.hide()
+	is_selectable = false
+
+func _on_Button3_pressed():
+	command = "biohazard"
+	$AnimationPlayer.play("prepare_biohazard")
+	$Timer.wait_time = 4
 	$Timer.start()
 	$AntPopup.hide()
 	is_selectable = false
 	
-	
 func destroy():
+	destroy_ant()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "die":
+		var corpse = load("res://Environment/Corpse.tscn").instance()
+		corpse.position = self.position + Vector2(0,6)
+		get_parent().add_child(corpse)
+		destroy_ant()
+		
+func destroy_ant():
+	Global.ants_alive -= 1
 	queue_free()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	destroy_ant()
