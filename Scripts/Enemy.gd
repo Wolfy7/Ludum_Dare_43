@@ -11,7 +11,7 @@ func _process(delta):
 		$Sprite.play("Eat")
 		$Timer.start()
 
-func destroy():
+func hit_by_biohazard():
 	queue_free()
 
 func _on_Sprite_animation_finished():

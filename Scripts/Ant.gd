@@ -92,8 +92,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		destroy_ant()
 		
 func destroy_ant():
-	Global.ants_alive -= 1
-	queue_free()
+	if Global.ants:
+		Global.ants -= 1
+		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():
 	destroy_ant()

@@ -39,7 +39,7 @@ tile_data = PoolIntArray( 131072, 0, 0, 131073, 0, 1, 131074, 0, 1, 131075, 0, 1
 _sections_unfolded = [ "Collision", "tile_set" ]
 
 [node name="Area2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 341.758, 205.33 )
+position = Vector2( 344.684, 204.842 )
 
 [node name="Area2D2" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true

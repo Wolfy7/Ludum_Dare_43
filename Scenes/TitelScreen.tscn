@@ -29,19 +29,23 @@ tile_data = PoolIntArray( 0, 0, 1, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 
 _sections_unfolded = [ "Cell" ]
 
 [node name="Ant" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 45.02, 242.939 )
 input_pickable = false
 
 [node name="Ant2" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 139.988, 242.425 )
 input_pickable = false
 
 [node name="Ant3" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 289.884, 243.965 )
 input_pickable = false
 
 [node name="Ant4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 524.994, 243.965 )
+editor/display_folded = true
+position = Vector2( 524.994, 244.822 )
 input_pickable = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -175,3 +179,11 @@ align = 0
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+
+[editable path="Ant"]
+
+[editable path="Ant2"]
+
+[editable path="Ant3"]
+
+[editable path="Ant4"]
