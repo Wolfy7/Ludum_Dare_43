@@ -1,20 +1,74 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/DefaultTheme.tres" type="Theme" id=1]
 [ext_resource path="res://GFX/Environment/gravestone1.png" type="Texture" id=2]
 [ext_resource path="res://GFX/Environment/Bomb1.png" type="Texture" id=3]
 [ext_resource path="res://GFX/Environment/Biohazard3.png" type="Texture" id=4]
 
+[sub_resource type="Animation" id=1]
+
+resource_name = "open"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.49012e-008, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 321 ), Vector2( 0, 360 ), Vector2( 0, 321 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.49012e-008, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.49012e-008, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 39 ), Vector2( 640, 39 ), Vector2( 640, 39 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.49012e-008, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
 [node name="AntPopup" type="Popup"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -90.0
-margin_top = -100.0
-margin_right = 90.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 180, 200 )
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -39.0
+margin_right = 320.0
+rect_min_size = Vector2( 0, 39 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -27,9 +81,10 @@ _sections_unfolded = [ "Hint", "Rect", "Theme", "theme" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -38,14 +93,14 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 37.0
-margin_right = 208.0
-margin_bottom = 162.0
+margin_left = 67.0
+margin_right = 573.0
+margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -59,7 +114,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 208.0
+margin_right = 118.0
 margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -84,9 +139,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 43.0
-margin_right = 208.0
-margin_bottom = 82.0
+margin_left = 122.0
+margin_right = 294.0
+margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 hint_tooltip = "after 5sec blow up himself to destroy blocking obstacles"
@@ -110,9 +165,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 86.0
-margin_right = 208.0
-margin_bottom = 125.0
+margin_left = 298.0
+margin_right = 506.0
+margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 hint_tooltip = "after 4sec blow up himself and secrete a toxic secretion to defeat enemies"
@@ -130,4 +185,13 @@ icon = ExtResource( 4 )
 flat = false
 align = 1
 _sections_unfolded = [ "Hint", "Theme", "custom_fonts" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/open = SubResource( 1 )
+blend_times = [  ]
 

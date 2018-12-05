@@ -51,7 +51,8 @@ func _on_Ant_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed and is_selectable:
 			$AnimatedSprite.visible = true
 			$AnimatedSprite.playing = true
-			$AntPopup.popup_centered()
+			$AntPopup.popup()
+			$AntPopup/AnimationPlayer.play("open")
 
 func _on_AntPopup_popup_hide():
 		$AnimatedSprite.visible = false
