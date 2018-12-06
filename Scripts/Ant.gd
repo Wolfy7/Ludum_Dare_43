@@ -98,4 +98,5 @@ func destroy_ant():
 		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():
+	print("TEST")
 	destroy_ant()

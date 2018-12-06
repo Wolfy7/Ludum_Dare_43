@@ -8,9 +8,11 @@
 [ext_resource path="res://Characters/Frog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=7]
 
-[node name="TestLevel" type="Node2D"]
+[node name="Tutorial" type="Node2D"]
 script = ExtResource( 1 )
 level_time = 200
+ants = 30
+ants_to_save_percent = 0.4
 
 [node name="Anthill" parent="." instance=ExtResource( 2 )]
 position = Vector2( 127.974, 287.943 )
@@ -39,6 +41,7 @@ tile_data = PoolIntArray( 131072, 0, 0, 131073, 0, 1, 131074, 0, 1, 131075, 0, 1
 _sections_unfolded = [ "Collision", "tile_set" ]
 
 [node name="Area2D" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 344.684, 204.842 )
 
 [node name="Area2D2" parent="." instance=ExtResource( 5 )]
