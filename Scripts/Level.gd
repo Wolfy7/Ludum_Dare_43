@@ -3,6 +3,7 @@ extends Node2D
 export var level_time = 10
 export var ants = 30
 export var ants_to_save_percent = 0.4
+export var id = 0
 
 func _ready():
 	Global.ants = ants

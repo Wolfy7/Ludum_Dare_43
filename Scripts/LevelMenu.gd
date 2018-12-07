@@ -1,13 +1,12 @@
 extends CanvasLayer
 
-var levels = {}
-
 func _ready():
-	levels = file_grabber.get_files("res://Levels/")
+	level_manger.create_default_file()
+	level_manger.load_level_infos()
 	
-	for level in levels.values():
+	for level_info in level_manger.level_infos.values():
 		var new_button = load("res://Scenes/LevelButton.tscn").instance()
-		new_button.level_scene = level
+		new_button.level_info = level_info		
 		$CenterContainer/GridContainer.add_child(new_button)
 		
 func show_level_name(level_name):

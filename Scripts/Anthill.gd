@@ -3,6 +3,8 @@ extends Area2D
 var ants_saved = 0
 var ants_to_save = 0
 
+#TODO: signal for win
+
 func set_ants_to_save(ants):
 	ants_to_save = ants
 	$Label.text = str(ants_to_save)

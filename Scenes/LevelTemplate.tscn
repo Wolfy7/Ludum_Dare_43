@@ -11,6 +11,7 @@ script = ExtResource( 1 )
 level_time = 200
 ants = 30
 ants_to_save_percent = 0.4
+id = 0
 
 [node name="Anthill" parent="." instance=ExtResource( 2 )]
 position = Vector2( 96.2488, 41.8796 )
