@@ -17,7 +17,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="AntSpawner" type="Node2D"]
 script = ExtResource( 1 )
-ants = 9
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
@@ -49,7 +48,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "10 %"
 align = 1
 valign = 1
 percent_visible = 1.0

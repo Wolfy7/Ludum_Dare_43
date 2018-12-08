@@ -6,4 +6,7 @@ func _on_ExitButton_pressed():
 
 
 func _on_RetryButton_pressed():
-	get_tree().change_scene("res://Levels/0_Tutorial.tscn")
+	get_tree().change_scene(Global.current_level)
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://Scenes/LevelMenu.tscn")

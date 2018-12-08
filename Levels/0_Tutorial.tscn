@@ -8,7 +8,9 @@
 [ext_resource path="res://Characters/Frog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=7]
 
-[node name="Tutorial" type="Node2D"]
+[node name="Tutorial" type="Node2D" groups=[
+"level",
+]]
 script = ExtResource( 1 )
 level_time = 200
 ants = 30

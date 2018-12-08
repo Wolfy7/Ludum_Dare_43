@@ -6,7 +6,9 @@
 [ext_resource path="res://GFX/Tileset/ground.tres" type="TileSet" id=4]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=5]
 
-[node name="LevelTemplate" type="Node2D"]
+[node name="LevelTemplate" type="Node2D" groups=[
+"level",
+]]
 script = ExtResource( 1 )
 level_time = 200
 ants = 30

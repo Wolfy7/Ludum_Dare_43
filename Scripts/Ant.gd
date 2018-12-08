@@ -93,6 +93,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		destroy_ant()
 		
 func destroy_ant():
+	get_tree().call_group("level", "ant_destroyed")
 	if Global.ants:
 		Global.ants -= 1
 		queue_free()
