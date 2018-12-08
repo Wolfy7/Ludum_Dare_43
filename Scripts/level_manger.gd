@@ -15,9 +15,8 @@ func load_level_infos():
 	level_infos = parse_json(data)
 	file.close()
 
-
 func save_level_infos():
-	file.open(file_path, File.WRITE) 
+	print(file.open(file_path, File.WRITE) )
 	file.store_line(to_json(level_infos))
 	file.close()
 	
@@ -38,8 +37,15 @@ func create_default_file():
 		level_infos[level_id] = infos
 		save_level_infos()
 
-
-
+func unlock_next_level(current_level):
+	var next_level = str(current_level + 1)
+	if level_infos.has(next_level):
+		level_infos[next_level].locked = false
+		save_level_infos()
+	else:
+		#TODO: last level finished
+		pass
+	
 
 
 

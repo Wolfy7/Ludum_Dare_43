@@ -27,3 +27,8 @@ func _on_Timer_timeout():
 	
 func gameover():
 	get_tree().change_scene("res://Scenes/GameOver.tscn")
+	
+func level_finished():
+	print("Gewonnen")
+	level_manger.unlock_next_level(id)
+	get_tree().change_scene("res://Scenes/LevelComplete.tscn")

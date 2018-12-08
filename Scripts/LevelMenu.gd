@@ -1,9 +1,6 @@
 extends CanvasLayer
 
-func _ready():
-	level_manger.create_default_file()
-	level_manger.load_level_infos()
-	
+func _ready():	
 	for level_info in level_manger.level_infos.values():
 		var new_button = load("res://Scenes/LevelButton.tscn").instance()
 		new_button.level_info = level_info		

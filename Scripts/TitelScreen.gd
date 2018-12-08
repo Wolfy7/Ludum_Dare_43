@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	level_manger.load_level_infos()
+
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://Levels/0_Tutorial.tscn")
 
