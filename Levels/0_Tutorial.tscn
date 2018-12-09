@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
-[ext_resource path="res://Environment/Anthill.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Environment/AntSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/AntSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environment/Anthill.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GFX/Tileset/ground.tres" type="TileSet" id=4]
 [ext_resource path="res://Environment/Obstacel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Characters/Frog.tscn" type="PackedScene" id=6]
@@ -17,11 +17,16 @@ ants = 30
 ants_to_save_percent = 0.4
 id = 0
 
-[node name="Anthill" parent="." instance=ExtResource( 2 )]
+[node name="AntSpawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.893, 40.936 )
+
+[node name="Anthills" type="Node" parent="."]
+
+[node name="Anthill" parent="Anthills" instance=ExtResource( 3 )]
 position = Vector2( 127.974, 287.943 )
 
-[node name="AntSpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 25.893, 40.936 )
+[node name="Anthill2" parent="Anthills" instance=ExtResource( 3 )]
+position = Vector2( 498.617, 95.2707 )
 
 [node name="TileMap" type="TileMap" parent="."]
 mode = 0

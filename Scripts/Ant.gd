@@ -9,16 +9,18 @@ var velocity = Vector2()
 var move_direction = Vector2(1,0)
 var is_selectable = true
 var command = ""
+var is_alive
 
 func _ready():
 	#$Timer.start()
+	is_alive = true
 	pass
 	
 
 func _process(delta):
-	#var time_left = $Timer.time_left
-	#if time_left <= 2:
-	#	$Label.add_color_override("font_color", Color(1,0,0))
+	if not is_alive:
+		get_tree().call_group("level", "ant_destroyed")
+		queue_free()
 	if not $Timer.is_stopped():
 		$Label.text = str($Timer.time_left).pad_decimals(0)
 
@@ -60,25 +62,41 @@ func _on_AntPopup_popup_hide():
 
 func _on_Button_pressed():
 	command = "die"
-	$AnimationPlayer.play("prepare_die")
-	$Timer.wait_time = 1
-	$Timer.start()
+#	$AnimationPlayer.play("prepare_die")
+#	$Timer.wait_time = 1
+#	$Timer.start()
+	$AnimationPlayer.play("die")	
+	
 	$AntPopup.hide()
 	is_selectable = false
 
 func _on_Button2_pressed():
 	command = "explosion"
-	$AnimationPlayer.play("prepare_exploded")
-	$Timer.wait_time = 5
-	$Timer.start()
+#	$AnimationPlayer.play("prepare_exploded")
+#	$Timer.wait_time = 5
+#	$Timer.start()
+		
+	var explosion = load("res://Environment/Explosion.tscn").instance()
+	explosion.position = self.position
+	explosion.type = command
+	get_parent().add_child(explosion)
+	destroy_ant()
+
 	$AntPopup.hide()
 	is_selectable = false
 
 func _on_Button3_pressed():
 	command = "biohazard"
-	$AnimationPlayer.play("prepare_biohazard")
-	$Timer.wait_time = 4
-	$Timer.start()
+#	$AnimationPlayer.play("prepare_biohazard")
+#	$Timer.wait_time = 4
+#	$Timer.start()
+
+	var explosion = load("res://Environment/Explosion.tscn").instance()
+	explosion.position = self.position
+	explosion.type = command
+	get_parent().add_child(explosion)
+	destroy_ant()
+
 	$AntPopup.hide()
 	is_selectable = false
 	
@@ -93,11 +111,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		destroy_ant()
 		
 func destroy_ant():
-	get_tree().call_group("level", "ant_destroyed")
-	if Global.ants:
-		Global.ants -= 1
-		queue_free()
+	is_alive = false
 
 func _on_VisibilityNotifier2D_screen_exited():
-	#print("TEST")
 	destroy_ant()

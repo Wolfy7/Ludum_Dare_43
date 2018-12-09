@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://GFX/Tileset/ground.tres" type="TileSet" id=2]
-[ext_resource path="res://Environment/AntSpawner.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Environment/Anthill.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/Anthill.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/AntSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=5]
 
 [node name="LevelTemplate" type="Node2D" groups=[
@@ -35,11 +35,13 @@ format = 1
 tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Collision", "tile_set" ]
 
-[node name="AntSpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 25.893, 40.936 )
+[node name="Anthills" type="Node" parent="."]
 
-[node name="Anthill" parent="." instance=ExtResource( 4 )]
+[node name="Anthill" parent="Anthills" instance=ExtResource( 3 )]
 position = Vector2( 96.2488, 41.8796 )
+
+[node name="AntSpawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 25.893, 40.936 )
 
 [node name="Obstacles" type="Node" parent="."]
 
