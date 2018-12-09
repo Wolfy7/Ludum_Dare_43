@@ -15,3 +15,10 @@ func _on_BckButton_pressed():
 	
 func restart_level():
 	get_tree().reload_current_scene()
+
+
+func _on_SpeedButton_toggled(button_pressed):
+	if button_pressed:
+		Engine.time_scale = 2.0
+	else:
+		Engine.time_scale = 1.0

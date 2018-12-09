@@ -15,7 +15,7 @@ func _ready():
 	$Timer.wait_time = level_time
 	$Timer.start()
 	Global.current_level = get_tree().current_scene.filename
-
+	
 func _process(delta):
 	update_time_left()
 	#print(Global.ants, Global.ants_alive, Global.ants_to_save)

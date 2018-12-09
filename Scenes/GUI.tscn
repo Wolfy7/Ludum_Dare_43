@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Resources/DefaultTheme.tres" type="Theme" id=2]
 [ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=3]
-[ext_resource path="res://GFX/Environment/reload.png" type="Texture" id=4]
-[ext_resource path="res://GFX/Environment/back.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Environment/fastforward.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Environment/normal.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Environment/reload.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Environment/back.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -53,9 +55,9 @@ anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = -45.0
+margin_left = -66.0
 margin_top = 8.0
-margin_right = 23.0
+margin_right = 46.0
 margin_bottom = 48.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -68,7 +70,7 @@ custom_constants/separation = 8
 alignment = 1
 _sections_unfolded = [ "Rect", "custom_constants" ]
 
-[node name="ReloadButton" type="TextureButton" parent="HBoxContainer"]
+[node name="SpeedButton" type="TextureButton" parent="HBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -82,14 +84,15 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
 texture_normal = ExtResource( 4 )
-_sections_unfolded = [ "Rect", "Textures" ]
+texture_pressed = ExtResource( 5 )
+_sections_unfolded = [ "Textures" ]
 
-[node name="BckButton" type="TextureButton" parent="HBoxContainer"]
+[node name="ReloadButton" type="TextureButton" parent="HBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -108,8 +111,31 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
+[node name="BckButton" type="TextureButton" parent="HBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_right = 112.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[connection signal="toggled" from="HBoxContainer/SpeedButton" to="." method="_on_SpeedButton_toggled"]
 [connection signal="pressed" from="HBoxContainer/ReloadButton" to="." method="_on_ReloadButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/BckButton" to="." method="_on_BckButton_pressed"]
